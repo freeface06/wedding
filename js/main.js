@@ -54,4 +54,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // 4. D-Day 카운트다운
+    const weddingDate = new Date('2026-04-18T12:30:00');
+
+    function updateCountdown() {
+        const now = new Date();
+        const diff = weddingDate - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown').innerHTML = "<span>00</span><span class='colon'>:</span><span>00</span><span class='colon'>:</span><span>00</span><span class='colon'>:</span><span>00</span>";
+            document.getElementById('d-day-result').innerText = "오늘";
+            document.querySelector('.d-day-text').innerHTML = "오늘은 기홍, 지현의 <b>결혼식 당일</b>입니다. 축하해 주세요!";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('d-days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('d-hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('d-mins').innerText = minutes.toString().padStart(2, '0');
+        document.getElementById('d-secs').innerText = seconds.toString().padStart(2, '0');
+        
+        document.getElementById('d-day-result').innerText = `${days}일`;
+    }
+
+    if (document.getElementById('countdown')) {
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    }
 });

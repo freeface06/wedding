@@ -8,8 +8,9 @@
     <!-- 카카오톡 등 SNS 링크 공유 시 나타나는 썸네일(미리보기) 설정 -->
     <meta property="og:title" content="박기홍 ♥ 이지현 결혼합니다">
     <meta property="og:description" content="2026년 4월 18일 (토) 낮 12시 30분, 세계로금란교회">
-    <!-- 주의: 썸네일 이미지는 나중에 웹에 호스팅(배포)될 때 아래 주소를 실제 도메인 주소(예: https://내도메인.com/assets/cover.png)로 전체 경로를 적어주어야 카카오톡에서 이미지를 정상적으로 불러옵니다! 우선은 기본 경로로 둡니다. -->
-    <meta property="og:image" content="./assets/cover.png">
+    <!-- 주의: 카카오톡 등 SNS는 썸네일 이미지를 절대 경로(Full URL)로 인식합니다. -->
+    <meta property="og:url" content="https://freeface06.github.io/wedding/">
+    <meta property="og:image" content="https://freeface06.github.io/wedding/assets/cover.png">
     <!-- 모바일 기기 홈 화면 등 추가 썸네일 -->
     <link rel="apple-touch-icon" href="./assets/cover.png">
     <link rel="icon" type="image/png" href="./assets/favicon.png">
@@ -100,7 +101,41 @@
             </div>
         </section>
 
-        <!-- 3. 연락하기 -->
+        <!-- 3. 달력 및 디데이 -->
+        <section class="section calendar-section" id="calendar">
+            <div class="calendar-header">
+                <h3>2026.04.18</h3>
+                <p>토요일 낮 12시 30분</p>
+            </div>
+            
+            <div class="calendar-wrapper">
+                <div class="cal-days">
+                    <span class="sun">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+                </div>
+                <div class="cal-dates">
+                    <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
+                    <span class="sun">5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                    <span class="sun">12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span class="d-day-mark">18</span>
+                    <span class="sun">19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+                    <span class="sun">26</span><span>27</span><span>28</span><span>29</span><span>30</span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="d-day-container">
+                <div class="countdown-labels">
+                    <span>DAYS</span><span>HOUR</span><span>MIN</span><span>SEC</span>
+                </div>
+                <div class="countdown-numbers" id="countdown">
+                    <span id="d-days">00</span><span class="colon">:</span>
+                    <span id="d-hours">00</span><span class="colon">:</span>
+                    <span id="d-mins">00</span><span class="colon">:</span>
+                    <span id="d-secs">00</span>
+                </div>
+                <p class="d-day-text">기홍, 지현의 결혼식이 <span class="highlight" id="d-day-result">0일</span> 남았습니다.</p>
+            </div>
+        </section>
+
+        <!-- 4. 연락하기 -->
         <section class="section contact" id="contact">
             <div class="contact-box">
                 <p class="contact-guide">마음 전하실 곳</p>
