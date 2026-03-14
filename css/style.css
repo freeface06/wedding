@@ -75,12 +75,59 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* 서서히 줌인/줌아웃 되는 고급스러운 켄번스(Ken Burns) 효과 */
+    animation: slowZoom 15s infinite alternate ease-in-out;
+    transform-origin: center center;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+/* 샤랄라(Shiny/Bokeh) 파티클 효과 */
+.sparkle-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,220,180,0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 12px 3px rgba(255, 240, 210, 0.4);
+}
+
+.s1 { top: 20%; left: 30%; animation: twinkle 4s infinite 0s, floatUp 15s infinite linear; }
+.s2 { top: 60%; left: 70%; animation: twinkle 5s infinite 1s, floatUp 12s infinite linear; width: 8px; height: 8px; }
+.s3 { top: 80%; left: 20%; animation: twinkle 3.5s infinite 2s, floatUp 18s infinite linear; }
+.s4 { top: 40%; left: 80%; animation: twinkle 4.5s infinite 0.5s, floatUp 14s infinite linear; width: 5px; height: 5px; }
+.s5 { top: 10%; left: 50%; animation: twinkle 6s infinite 1.5s, floatUp 20s infinite linear; width: 10px; height: 10px; }
+.s6 { top: 70%; left: 40%; animation: twinkle 5.5s infinite 2.5s, floatUp 16s infinite linear; width: 7px; height: 7px; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 0.8; transform: scale(1.5); }
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-80px) rotate(180deg); }
 }
 
 .cover-text {
     text-align: center;
     padding: 60px 24px;
     background-color: #ffffff;
+    /* 추가: 화면이 매우 작을 때 스크롤 인디케이터와 겹치지 않도록 최소 높이 및 하단 여백 확보 */
+    position: relative;
+    padding-bottom: 90px;
 }
 
 .cover-text .date {
@@ -276,14 +323,27 @@ body {
 
 .map-container iframe {
     position: absolute;
-    top: -70px;
+    /* 상단 버튼들이 완전히 가려지도록 top 마진을 더 크게 주고, 그만큼 height를 넉넉하게 잡습니다. */
+    top: -120px;
     left: -70px;
     width: calc(100% + 140px);
-    height: calc(100% + 140px);
+    height: calc(100% + 240px);
     pointer-events: none; /* 클릭 방지 */
     border: none;
     /* 차분하고 깔끔한 톤을 위한 필터 적용 */
     filter: grayscale(30%) contrast(0.95);
+}
+
+/* 추가: 클릭 시 실제 지도로 이동하기 위한 투명 오버레이 버튼 */
+.map-link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* iframe 위에 덮어씌움 */
+    background: transparent;
+    cursor: pointer;
 }
 
 .map-placeholder {
