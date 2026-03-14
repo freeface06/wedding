@@ -85,40 +85,92 @@ body {
     100% { transform: scale(1.1); }
 }
 
-/* 샤랄라(Shiny/Bokeh) 파티클 효과 */
+/* 추가: 메인 커버 위에 떠오르는 예쁜 영문 문구 애니메이션 및 이름 컨테이너 */
+.cover-titles-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+    width: 100%;
+}
+
+.cover-intro-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 52px;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    /* 서서히 페이드인 + 위로 떠오르는 우아한 효과 */
+    animation: fadeInUp 3s ease-out forwards;
+    opacity: 0;
+}
+
+.cover-korean-names {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    color: #ffffff;
+    margin-top: 10px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+    /* 영문이 먼저 떠오른 뒤 살짝 늦게 나타나는 효과 */
+    animation: fadeInUp 3s ease-out 1.5s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 0.95;
+        transform: translateY(0);
+    }
+}
+
+/* 샤랄라(Shiny/Bokeh) 파티클 효과 극대화 */
 .sparkle-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
     z-index: 5;
     pointer-events: none;
     overflow: hidden;
+    /* 은은하게 퍼져나가는 후광 오버레이 추가 */
+    background: radial-gradient(circle at 50% 30%, rgba(255, 230, 200, 0.15) 0%, transparent 60%);
 }
 
 .sparkle {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,220,180,0) 70%);
+    background: #ffffff;
     border-radius: 50%;
     opacity: 0;
-    box-shadow: 0 0 12px 3px rgba(255, 240, 210, 0.4);
+    /* 눈부심(Glow) 효과를 두 겹으로 레이어링하여 화려함 폭발 */
+    box-shadow: 0 0 15px 4px rgba(255, 230, 180, 0.8), 0 0 25px 8px rgba(255, 255, 255, 0.6);
 }
 
-.s1 { top: 20%; left: 30%; animation: twinkle 4s infinite 0s, floatUp 15s infinite linear; }
-.s2 { top: 60%; left: 70%; animation: twinkle 5s infinite 1s, floatUp 12s infinite linear; width: 8px; height: 8px; }
-.s3 { top: 80%; left: 20%; animation: twinkle 3.5s infinite 2s, floatUp 18s infinite linear; }
-.s4 { top: 40%; left: 80%; animation: twinkle 4.5s infinite 0.5s, floatUp 14s infinite linear; width: 5px; height: 5px; }
-.s5 { top: 10%; left: 50%; animation: twinkle 6s infinite 1.5s, floatUp 20s infinite linear; width: 10px; height: 10px; }
-.s6 { top: 70%; left: 40%; animation: twinkle 5.5s infinite 2.5s, floatUp 16s infinite linear; width: 7px; height: 7px; }
+/* 입자의 개수 확장 및 크기/속도 다변화 */
+.s1 { top: 20%; left: 30%; animation: twinkle 3s infinite 0s, floatUp 15s infinite linear; width: 8px; height: 8px; }
+.s2 { top: 60%; left: 70%; animation: twinkle 4s infinite 1s, floatUp 12s infinite linear; width: 12px; height: 12px; }
+.s3 { top: 80%; left: 20%; animation: twinkle 2.5s infinite 2s, floatUp 18s infinite linear; width: 9px; height: 9px; }
+.s4 { top: 40%; left: 80%; animation: twinkle 3.5s infinite 0.5s, floatUp 14s infinite linear; width: 6px; height: 6px; }
+.s5 { top: 10%; left: 50%; animation: twinkle 5s infinite 1.5s, floatUp 20s infinite linear; width: 15px; height: 15px; }
+.s6 { top: 70%; left: 40%; animation: twinkle 4.5s infinite 2.5s, floatUp 16s infinite linear; width: 10px; height: 10px; }
+.s7 { top: 30%; left: 80%; animation: twinkle 3.2s infinite 0.8s, floatUp 17s infinite linear; width: 14px; height: 14px; }
+.s8 { top: 50%; left: 15%; animation: twinkle 4.8s infinite 1.2s, floatUp 13s infinite linear; width: 7px; height: 7px; }
+.s9 { top: 15%; left: 75%; animation: twinkle 2.8s infinite 0.3s, floatUp 19s infinite linear; width: 11px; height: 11px; }
+.s10{ top: 85%; left: 60%; animation: twinkle 5.5s infinite 2.1s, floatUp 22s infinite linear; width: 8px; height: 8px; }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0; transform: scale(0.5); }
-    50% { opacity: 0.8; transform: scale(1.5); }
+    0%, 100% { opacity: 0; transform: scale(0.3) rotate(0deg); }
+    50% { opacity: 1; transform: scale(2) rotate(180deg); }
 }
 
 @keyframes floatUp {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-80px) rotate(180deg); }
+    0% { transform: translateY(0) translateX(0); }
+    100% { transform: translateY(-120px) translateX(40px); }
 }
 
 .cover-text {
@@ -273,15 +325,36 @@ body {
 }
 
 .btn-icon {
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    background-color: #f7f5f0;
+    border: 1px solid #dcccc0;
+    border-radius: 4px;
+    color: #4a4a4a;
     text-decoration: none;
-    color: var(--text-color);
-    background-color: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
     transition: background-color 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: #e8e4dc;
+}
+
+/* 추가: SVG 아이콘 스타일 */
+.icon-svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    /* 따뜻하고 은은한 골드브라운 톤 적용, 혹은 글씨색(#4a4a4a)에 맞춥니다. */
+    color: #9a8a78;
+    transition: color 0.2s;
+}
+
+.btn-icon:hover .icon-svg {
+    color: #4a4a4a;
 }
 
 /* 4. Gallery */
