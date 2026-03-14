@@ -1,0 +1,437 @@
+/* Reset & Variables */
+:root {
+    --primary-color: #f7f5f0;     /* Warm beige background */
+    --text-color: #333333;        /* Main dark grey for readability */
+    --text-muted: #888888;
+    --accent-color: #d1bfae;      /* Soft elegant accent */
+    --border-color: #eaeaea;
+    
+    --font-serif: 'Nanum Myeongjo', serif;
+    --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e5e5e5; /* Outer background to show mobile container centrally */
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Mobile Container */
+.mobile-container {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    overflow-x: hidden;
+}
+
+/* Common Section Styles */
+.section {
+    padding: 80px 24px;
+    background-color: #ffffff;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title .subtitle {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* 1. Cover */
+.cover {
+    height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--primary-color);
+}
+
+.cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cover-text {
+    text-align: center;
+    padding: 60px 24px;
+    background-color: #ffffff;
+}
+
+.cover-text .date {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.cover-text .names {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.cover-text .names .divider {
+    font-weight: 300;
+    color: var(--accent-color);
+    margin: 0 12px;
+}
+
+.cover-text .location {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.arrow-down {
+    width: 1px;
+    height: 30px;
+    background-color: var(--text-muted);
+    margin: 8px auto 0;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+    40% { transform: translate(-50%, -10px); }
+    60% { transform: translate(-50%, -5px); }
+}
+
+/* 2. Intro */
+.intro {
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.intro-message {
+    font-size: 15px;
+    line-height: 2.2;
+    margin-bottom: 50px;
+}
+
+.parents-info {
+    font-size: 16px;
+}
+
+.family-row {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.family-row .parents {
+    font-family: var(--font-serif);
+    font-weight: 700;
+}
+
+.family-row .relation {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.family-row .name {
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+/* 3. Contact */
+.contact {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.contact-box {
+    background-color: #faf9f7;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.contact-guide {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.contact-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.contact-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.contact-card .label {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    transition: background-color 0.2s;
+}
+
+/* 4. Gallery */
+.gallery {
+    background-color: #ffffff;
+}
+
+.mySwiper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--accent-color) !important;
+}
+
+/* 5. Location */
+.location {
+    background-color: var(--primary-color);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    background-color: #e8e4dc;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: -70px;
+    left: -70px;
+    width: calc(100% + 140px);
+    height: calc(100% + 140px);
+    pointer-events: none; /* 클릭 방지 */
+    border: none;
+    /* 차분하고 깔끔한 톤을 위한 필터 적용 */
+    filter: grayscale(30%) contrast(0.95);
+}
+
+.map-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-muted);
+}
+
+.venue-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.venue-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.venue-info p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.transport-list {
+    list-style: none;
+}
+
+.transport-list li {
+    margin-bottom: 20px;
+}
+
+.transport-list h4 {
+    font-size: 14px;
+    color: var(--accent-color);
+    margin-bottom: 4px;
+}
+
+.transport-list p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 6. Remittance Accordion */
+.remittance {
+    background-color: #ffffff;
+}
+
+.accordion-item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 16px 20px;
+    text-align: left;
+    background-color: #faf9f7;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-sans);
+}
+
+.accordion-header::after {
+    content: '+';
+    font-size: 18px;
+    color: var(--text-muted);
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '-';
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #ffffff;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 200px;
+    transition: max-height 0.3s ease-in;
+}
+
+.account-row {
+    padding: 20px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bank-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bank-info .bank {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.bank-info .acc-num {
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.btn-copy {
+    padding: 6px 12px;
+    font-size: 12px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-sans);
+}
+
+.acc-name {
+    padding: 0 20px 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Footer */
+.footer {
+    padding: 40px 24px;
+    text-align: center;
+    background-color: #f7f5f0;
+    color: var(--text-muted);
+}
+
+.footer p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.footer .copyright {
+    font-size: 12px;
+    font-family: var(--font-sans);
+}
