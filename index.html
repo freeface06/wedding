@@ -203,22 +203,15 @@
                 <h2>Location</h2>
                 <span class="subtitle">오시는 길</span>
             </div>
-            <div class="map-container" id="naver-map"></div>
+            <div class="map-container">
+                <iframe src="https://maps.google.com/maps?ll=37.714058,126.741907&z=16&ie=UTF8&output=embed" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <a href="https://www.google.com/maps/search/?api=1&query=세계로금란교회+경기도+파주시+와석순환로172번길+14" target="_blank" class="map-link-overlay" aria-label="구글 지도 열기"></a>
+            </div>
             <div class="venue-info">
                 <h3>세계로금란교회</h3>
                 <p>경기도 파주시 와석순환로 172번길 14</p>
             </div>
-            <!-- 지도 앱 바로가기 버튼 -->
-            <div class="map-buttons">
-                <a href="nmap://place?lat=37.7136&lng=126.7464&name=세계로금란교회&appname=wedding" class="map-btn naver" onclick="window.open('https://map.naver.com/v5/search/세계로금란교회 경기도 파주시 와석순환로172번길 14', '_blank'); return false;">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.11 10.36 8.42 11.27a1 1 0 0 0 1.16 0C13.89 21.36 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
-                    네이버 지도
-                </a>
-                <a href="https://map.kakao.com/link/search/세계로금란교회 경기도 파주시 와석순환로172번길 14" target="_blank" class="map-btn kakao">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 7.11 10.36 8.42 11.27a1 1 0 0 0 1.16 0C13.89 21.36 21 16.25 21 11c0-4.97-4.03-9-9-9zm0 12.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
-                    카카오맵
-                </a>
-            </div>
+
             <ul class="transport-list">
                 <li>
                     <h4>대중교통</h4>
@@ -276,8 +269,7 @@
         </footer>
     </div>
 
-    <!-- Naver Maps JS API v3 -->
-    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=lstn6qo079"></script>
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Custom Script -->

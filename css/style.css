@@ -507,10 +507,29 @@ body {
     overflow: hidden;
 }
 
-/* 커스텀 마커 */
+.map-container iframe {
+    position: absolute;
+    top: -120px;
+    left: -70px;
+    width: calc(100% + 140px);
+    height: calc(100% + 240px);
+    pointer-events: none;
+    border: none;
+    filter: grayscale(30%) contrast(0.95);
+}
+
+/* 커스텀 마커 오버레이 (지도 중앙에 고정) */
+.marker-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+    z-index: 5;
+    pointer-events: none;
+}
+
 .custom-marker {
     position: relative;
-    cursor: pointer;
 }
 
 .marker-wrapper {
@@ -520,7 +539,6 @@ body {
     position: relative;
 }
 
-/* 마커 상단 라벨 */
 .marker-label {
     background: linear-gradient(135deg, #d1bfae 0%, #c4a88e 100%);
     color: #ffffff;
@@ -536,7 +554,6 @@ body {
     z-index: 2;
 }
 
-/* 라벨 하단 삼각형 꼬리 */
 .marker-label::after {
     content: '';
     position: absolute;
@@ -550,7 +567,6 @@ body {
     border-top: 7px solid #c4a88e;
 }
 
-/* 마커 핀 */
 .marker-pin {
     width: 14px;
     height: 14px;
@@ -563,7 +579,6 @@ body {
     z-index: 2;
 }
 
-/* 펄스(파동) 애니메이션 */
 .marker-pulse {
     position: absolute;
     bottom: -3px;
@@ -588,47 +603,16 @@ body {
     }
 }
 
-/* 지도 앱 바로가기 버튼 */
-.map-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 30px;
-}
-
-.map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 20px;
-    border-radius: 24px;
-    font-size: 13px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    font-family: var(--font-sans);
-}
-
-.map-btn.naver {
-    background-color: #1ec800;
-    color: #ffffff;
-}
-
-.map-btn.naver:hover {
-    background-color: #17a600;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(30, 200, 0, 0.3);
-}
-
-.map-btn.kakao {
-    background-color: #fee500;
-    color: #3c1e1e;
-}
-
-.map-btn.kakao:hover {
-    background-color: #f5dc00;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
+/* 클릭 시 구글 지도 열기 위한 투명 오버레이 */
+.map-link-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: transparent;
+    cursor: pointer;
 }
 
 .venue-info {
