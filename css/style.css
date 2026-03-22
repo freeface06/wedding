@@ -696,7 +696,7 @@ body {
 }
 
 .accordion-item.active .accordion-content {
-    max-height: 200px;
+    max-height: 400px;
     transition: max-height 0.3s ease-in;
 }
 
@@ -736,6 +736,13 @@ body {
     padding: 0 20px 20px;
     font-size: 13px;
     color: var(--text-muted);
+}
+
+/* 계좌 구분선 */
+.account-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 0 20px;
 }
 
 /* Footer */
